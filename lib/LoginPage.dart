@@ -1,8 +1,10 @@
 import 'package:homwdef/animations/FadeAnimation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'auth.dart';
 class LoginPage extends StatefulWidget {
+  LoginPage({this.auth});
+  final BaseAuth auth;
 @override
   _LoginPageState createState() => new _LoginPageState();
 }
@@ -23,8 +25,9 @@ class _LoginPageState extends State<LoginPage> {
    void validateAndSubmit() async {
     if (validateAndSave()) {
       try{
-      FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
-      print('Signed in ${user.uid}');
+      String userId=await widget.auth.signInWithEmailAndPassword(_email, _password);
+      //FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
+      print('Signed in $userId');
       }
       catch(e){
   

@@ -2,7 +2,7 @@ import 'package:homwdef/animations/FadeAnimation.dart';
 import 'package:homwdef/LoginPage.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:flutter/material.dart';
-
+import 'auth.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
       end: 32.0
     ).animate(_scale2Controller)..addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: LoginPage()));
+        Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: LoginPage(auth: new Auth())));
       }
     });
   }
