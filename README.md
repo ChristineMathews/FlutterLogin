@@ -1,6 +1,7 @@
-# homwdef
-
-A new Flutter project.
+# Flutter Login
+clone this repo and you can make use of this login operation with splash screen in flutter
+implemented using firebase.
+make the necessary changes and youre ready to go
 
 ## Getting Started
 
